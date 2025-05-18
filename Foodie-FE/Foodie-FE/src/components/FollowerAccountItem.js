@@ -17,7 +17,7 @@ function FollowerAccountItem(props) {
 
   const [followButtonTitle, setFollowButtonTitle] = useState("Follow");
   const [tickIconStatus, setTickIconStatus] = useState(false);
-
+//get current followe's ID and current logged-in user's ID
   function handleFollowButtonClick(e) {
     dispatch(
       followAccount({
