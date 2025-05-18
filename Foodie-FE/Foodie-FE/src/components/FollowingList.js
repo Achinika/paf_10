@@ -8,6 +8,7 @@ import { Users } from "lucide-react";
 function FollowingList() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  //// Getting following accounts list from Redux store
   const storeFollowingAccounts = useSelector(
     (state) => state.followingAccountReducer.followingAccounts
   );
