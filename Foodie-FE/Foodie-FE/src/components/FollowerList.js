@@ -8,6 +8,7 @@ import { Users } from "lucide-react";
 function FollowerList() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  //Fetches Follower & Following Data
   const storeFollowerAccounts = useSelector(
     (state) => state.followingAccountReducer.followerAccounts
   );
