@@ -30,6 +30,7 @@ function PostCompose() {
   const [file64String, setFile64String] = useState(null);
   const [file64StringWithType, setFile64StringWithType] = useState(null);
   const [isHovered, setIsHovered] = useState(false);
+
   // New state for post type dropdown
   const [isTypeDropdownOpen, setIsTypeDropdownOpen] = useState(false);
   const [selectedPostType, setSelectedPostType] = useState({
@@ -105,6 +106,8 @@ function PostCompose() {
       progress: undefined,
       theme: "colored",
     });
+    console.log("success", inputMessage);
+    
   }
 
   function showFailMessage(inputMessage) {
@@ -118,6 +121,8 @@ function PostCompose() {
       progress: undefined,
       theme: "colored",
     });
+    console.log("fail", inputMessage);
+    
   }
 
   function handleContentChange(e) {
@@ -125,8 +130,12 @@ function PostCompose() {
     setPostContentCount(e.target.value.length);
     if (postContentCount === 0 || postContentCount > 200) {
       setDisablePostButton(true);
+      console.log("disable", postContentCount);
+      
     } else {
       setDisablePostButton(false);
+      console.log("enable", postContentCount);
+      
     }
   }
 
@@ -177,7 +186,7 @@ function PostCompose() {
     if (e.target.files < 1 || !e.target.validity.valid) {
       return;
     }
-    console.log(e, "e");
+    console.log( "e value is:",e);
 
     compressImageFile(e);
   }

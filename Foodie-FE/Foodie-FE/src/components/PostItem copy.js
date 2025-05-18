@@ -47,15 +47,21 @@ function PostItem(props) {
     if (!props.loveList.includes(currentUserId)) {
       setLoveStatus(true);
       dispatch(addLove({ postId: postId, userId: currentUserId }));
+      console.log("loveList", props.loveList);
+      
     } else {
       setLoveStatus(false);
       dispatch(addLove({ postId: postId, userId: currentUserId }));
+      console.log("unloveList", props.loveList);
+      
     }
   }
 
   function handleShareClick(e) {
     dispatch(addShare({ postId: postId, userId: currentUserId }));
     dispatch(getFollowingPosts());
+    console.log("shareList", props.shareList);
+    
   }
 
   function handleCommentButtonClick(e) {
@@ -91,6 +97,8 @@ function PostItem(props) {
       })
     );
     setCommentContent("");
+    console.log("commentList", props.commentList);
+    
   }
 
   return (
