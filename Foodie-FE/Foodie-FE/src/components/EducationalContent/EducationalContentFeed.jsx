@@ -78,7 +78,7 @@ const handleViewTextContent = (content) => {
           },
         }
       );
-
+//update Content Feed for 2nd time
       if (response.data.status === 'success') {
         setContentFeed(prevFeed => {
           const updatedFeed = [...prevFeed];
