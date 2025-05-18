@@ -25,7 +25,7 @@ function FollowingAccountItem(props) {
     setFollowButtonTitle("Unfollowed");
     setTickIconStatus(true);
   }
-
+//view profile
   function handleClick(e) {
     dispatch(getProfileId(props.id));
   }
