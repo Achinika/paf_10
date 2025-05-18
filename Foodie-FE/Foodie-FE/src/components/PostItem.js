@@ -105,6 +105,9 @@ function PostItem(props) {
   TimeAgo.addLocale(en);
   const timeAgo = new TimeAgo("en-US");
 
+// Function to handle love button click
+
+
   function handleLoveClick(e) {
     if (!props.loveList.includes(currentUserId)) {
       setLoveStatus(true);
@@ -132,6 +135,7 @@ function PostItem(props) {
       setSendButtonDisable(true);
     }
   }
+// Function to send comment
 
   function sendComment(e) {
     dispatch(
@@ -190,6 +194,8 @@ function PostItem(props) {
     setCurrentCommentitem(commentItem);
   };
 
+  // Function to update comment
+
   const updateComment = () => {
     var data = {
       "commentEntity": {
@@ -216,6 +222,7 @@ function PostItem(props) {
     });
   };
 
+// Function to delete comment
   const deleteComment = (commentItem) => {
     setCeditComment(commentItem.content);
     setCurrentCommentitem(commentItem);
