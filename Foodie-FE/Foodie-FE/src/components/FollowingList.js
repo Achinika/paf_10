@@ -16,6 +16,8 @@ function FollowingList() {
   useEffect(() => {
     if (localStorage.getItem("psnToken") === null) {
       navigate("/unauthorized");
+      console.log("Unauthorized access");
+      
     }
     
     dispatch(getFollowingAccounts());

@@ -15,6 +15,8 @@ function FollowerList() {
    useEffect (() => {
       if (dispatch(getFollowingAccounts())){
         dispatch(getFollowerAccounts());
+        console.log("Follower accounts fetched successfully");
+        
 
       }
       }, [dispatch, getFollowingAccounts, ])
@@ -22,6 +24,8 @@ function FollowerList() {
   useEffect(() => {
     if (localStorage.getItem("psnToken") === null) {
       navigate("/unauthorized");
+      console.log("Unauthorized access");
+      
     }
     dispatch(getFollowingAccounts());
     //dispatch(getFollowerAccounts());

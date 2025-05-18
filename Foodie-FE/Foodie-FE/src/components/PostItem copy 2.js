@@ -47,9 +47,15 @@ function PostItem(props) {
     if (!props.loveList.includes(currentUserId)) {
       setLoveStatus(true);
       dispatch(addLove({ postId: postId, userId: currentUserId }));
+      console.log("loveList", props.loveList);
+      console.log("currentUserId", currentUserId);
+      
     } else {
       setLoveStatus(false);
       dispatch(addLove({ postId: postId, userId: currentUserId }));
+      console.log("loveList", props.loveList);
+      console.log("currentUserId", currentUserId);
+      
     }
   }
 

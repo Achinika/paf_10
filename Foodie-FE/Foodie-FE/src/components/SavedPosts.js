@@ -14,6 +14,8 @@ function SavedPosts() {
   const handleShowModal = () => {
     setShowModal(true);
     fetchSavedPosts();
+    console.log("Fetching saved posts...");
+    
   };
 
   const handleCloseModal = () => setShowModal(false);
@@ -60,6 +62,8 @@ function SavedPosts() {
 
       if (response.data && response.data.status === "success") {
         setSavedPosts(response.data.payload || []);
+        console.log("Saved posts fetched successfully");
+        
       } else {
         showFailMessage("Failed to fetch saved posts");
       }
@@ -89,6 +93,8 @@ function SavedPosts() {
         showSuccessMessage("Post removed from saved posts");
         // Remove the post from the local state
         setSavedPosts((prevPosts) => prevPosts.filter((post) => post.id !== postId));
+        console.log("Post removed from saved posts successfully");
+        
       } else {
         showFailMessage("Failed to remove post from saved posts");
       }

@@ -94,6 +94,8 @@ function PostItem(props) {
   const getPostType = () => {
     if (props.postType && postTypes[props.postType]) {
       return postTypes[props.postType];
+      console.log("Post type found in props:", postTypes[props.postType]);
+      
     }
     return postTypes.insight; // Default to insight if not specified
   };
@@ -107,9 +109,13 @@ function PostItem(props) {
     if (!props.loveList.includes(currentUserId)) {
       setLoveStatus(true);
       dispatch(addLove({ postId: postId, userId: currentUserId }));
+      console.log("Love added");
+      
     } else {
       setLoveStatus(false);
       dispatch(addLove({ postId: postId, userId: currentUserId }));
+      console.log("Love removed");
+      
     }
   }
 
