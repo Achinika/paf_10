@@ -35,48 +35,51 @@ public class UserController {
     public ResponseEntity<ResponseObjectService> findAllUsers() {
         return new ResponseEntity<ResponseObjectService>(userService.findAll(), HttpStatus.OK);
     }
-
+//create profile 
     @PostMapping("/users/profile")
     public ResponseEntity<ResponseObjectService> findById(@RequestBody IdObjectEntity inputId) {
         return new ResponseEntity<ResponseObjectService>(userService.findById(inputId.getId()), HttpStatus.OK);
     }
-
+//following other users
     @PostMapping("/users/follow")
     public ResponseEntity<ResponseObjectService> followUser(@RequestBody DoubleIdObjectEntity doubleId) {
         return new ResponseEntity<ResponseObjectService>(userService.followUser(doubleId), HttpStatus.OK);
     }
-
+//unfollow other user
     @PostMapping("/users/unfollow")
     public ResponseEntity<ResponseObjectService> unfollowUser(@RequestBody DoubleIdObjectEntity doubleId) {
         return new ResponseEntity<ResponseObjectService>(userService.unfollowUser(doubleId), HttpStatus.OK);
     }
 
-
+// get all following users by iD
     @PostMapping("/users/getfollowing")
     public ResponseEntity<ResponseObjectService> findFollowing(@RequestBody IdObjectEntity inputId) {
         return new ResponseEntity<ResponseObjectService>(userService.findFollowing(inputId.getId()), HttpStatus.OK);
     }
-
+//find follower by ID
     @PostMapping("/users/getfollower")
     public ResponseEntity<ResponseObjectService> findFollower(@RequestBody IdObjectEntity inputId) {
         return new ResponseEntity<ResponseObjectService>(userService.findFollower(inputId.getId()), HttpStatus.OK);
     }
-
+//unfollow users
     @DeleteMapping("/users/unfollow")
     public ResponseEntity<ResponseObjectService> unfollowUserss(@RequestBody DoubleIdObjectEntity doubleId) {
         return new ResponseEntity<ResponseObjectService>(userService.unfollowUser(doubleId), HttpStatus.OK);
     }
+//update users
     @PutMapping("/users/update")
     public ResponseEntity<ResponseObjectService> saveUsers(@RequestBody UserEntity inputUser) {
         String message = "Hello, world!";
         System.out.println(message);
         return new ResponseEntity<ResponseObjectService>(userService.update(inputUser), HttpStatus.OK);
     }
+//save user content
    @PostMapping("/users/save")
    public ResponseEntity<ResponseObjectService> saveUser(@RequestBody UserEntity inputUser) {
       String message = "Hello, world!";      System.out.println(message);
        return new ResponseEntity<ResponseObjectService>(userService.saveUser(inputUser), HttpStatus.OK);
    }
+//delete user
     @DeleteMapping("/users/delete")
     public ResponseEntity<String> deletePost(@RequestBody UserEntity inputUserd) {
         userService.deleteUserById(String.valueOf(inputUserd.getId()));
@@ -84,6 +87,7 @@ public class UserController {
 
 //        return new ResponseEntity<ResponseObjectService>(userService.deleteUser( inputUser.getId()), HttpStatus.OK);
     }
+//signin user
     @PostMapping("/users/signin")
     public ResponseEntity<ResponseObjectService> userSignIn(@RequestBody UserSignInEntity inputUser) {
         try {
@@ -103,7 +107,7 @@ public class UserController {
 //    public ResponseEntity<ResponseObjectService> update(@RequestBody UserEntity inputUser) {
 //        return new ResponseEntity<ResponseObjectService>(userService.update(inputUser), HttpStatus.OK);
 //    }
-
+//get user detail
     @GetMapping("/getdata")
     public ResponseEntity<String> testAfterLogin(Principal p) {
         return ResponseEntity.ok("Welcome. You are: " + p.getName());
